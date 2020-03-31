@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" id="btn" value="点我"/>
+		<br />
+		<img src="../../images/a.jpg" id="mv" alt="" width="400" height="300">
+		
+		<a id="link" href="http://www.baidu.com" title="我是百度">百度</a>
+		<img id="mn" src="../../images/a.jpg" alt="美女" >
+		
+		<script>
+			var btn = document.getElementById('btn');
+			var mv = document.getElementById('mv');
+			var flag = 1;
+			btn.onclick = function () {
+				if (flag === 1) {
+					mv.src = '../../images/a.jpg';
+					flag = 2;
+				} else {
+					mv.src = '../../images/b.jpg';
+					flag = 1;
+				}
+				
+			}
+			var link = document.getElementById('link');
+			var mn = document.getElementById('mn');
+			console.log(link.id);
+			console.log(link.href);
+			console.log(link.title);
+			console.log(mn.id);
+			console.log(mn.src);
+			console.log(mn.alt);
+			link.title = ' 阿里';
+			console.log(link.title);
+		</script>
+	</body>
+</html>

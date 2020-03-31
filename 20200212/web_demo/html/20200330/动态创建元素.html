@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>标题</h1>
+		<img src="" alt=""/>
+		<input type="button" value="按钮" id="btn" />
+		<div id="box"></div>
+		<script>
+			var btn= document.getElementById('btn');
+			btn.onclick = function () {
+				document.write('hello <p>wold</p>')
+			}
+			
+			var p = document.createElement('p');
+			p.innerText = '吃的不好v吧';
+			p.style.color = 'red';
+			//把p元素添加到DOM树中
+			var box = document.getElementById('box');
+			box.appendChild(p);
+		</script>
+	</body>
+</html>

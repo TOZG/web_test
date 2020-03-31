@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box table {
+				border-collapse: collapse;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			var datas = [
+				{name: 'zs01', subject: '语文', score: 90},
+				{name: 'zs02', subject: '语文', score: 80},
+				{name: 'zs03', subject: '语文', score: 70},
+				{name: 'zs04', subject: '语文', score: 60},
+				{name: 'zs05', subject: '语文', score: 50},
+				{name: 'zs06', subject: '语文', score: 40},
+				{name: 'zs07', subject: '语文', score: 30},
+				{name: 'zs08', subject: '语文', score: 20},
+			];
+			
+			//1.创建table元素
+			var table = document.createElement('table');
+			my$('box').appendChild(table);
+			table.border = '1px';
+			table.width = '400px';
+			
+			//2.创建表头
+			var thead = document.createElement('thead');
+			table.appendChild(thead);
+			
+			var tr = document.createElement('tr');
+			thead.appendChild(tr);
+			tr.style.height = '40px';
+			tr.style.backgroundColor = 'lightgray';
+			
+			var headDatas = ['姓名', '科目', '成绩', '操作'];
+			for (var i = 0; i < headDatas.length; i++) {
+				var th = document.createElement('th');
+				tr.appendChild(th);
+				setInnerText(th, headDatas[i]);
+			}
+			
+			//3.创建数据行
+			var tbody = document.createElement('tbody');
+			table.appendChild(tbody);
+			tbody.style.textAlign = 'center';
+			for (var i = 0; i < datas.length; i++) {
+				var data = datas[i];
+				tr = document.createElement('tr');
+				tbody.appendChild(tr);
+				for (var key in data) {
+					var td = document.createElement('td');
+					tr.appendChild(td);
+					setInnerText(td, data[key]);
+				}
+				//生成删除对应的列
+				td = document.createElement('td');
+				tr.appendChild(td);
+				var link = document.createElement('a');
+				td.appendChild(link);
+				link.href = 'javascript:void(0)';
+				link.style.textDecoration = 'none';
+				setInnerText(link, '删除');
+				link.onclick = linkDelete;
+			}
+			
+			function linkDelete () {
+				var tr = this.parentNode.parentNode;
+				tbody.removeChild(tr);
+				return false;
+			}
+			
+		</script>
+	</body>
+</html>

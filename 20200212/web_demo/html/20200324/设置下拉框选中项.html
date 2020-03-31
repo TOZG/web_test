@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="设置" id="btnSet"/>
+		<select id="selCities">
+			<option value="1">北京</option>
+			<option value="1">上海</option>
+			<option value="1">深圳</option>
+			<option value="1">广州</option>
+			<option value="1">南京</option>
+			<option value="1">苏州</option>
+			<option value="1">杭州</option>
+			<option value="1">成都</option>
+			<option value="1">兰州</option>
+			<option value="1">西安</option>
+		</select>
+		
+		<script>
+			var btnSet = document.getElementById('btnSet');
+			
+			btnSet.onclick = function () {
+				var selCities = document.getElementById('selCities');
+				var options = selCities.getElementsByTagName('option');
+				
+				var randomIndex = parseInt(Math.random() * options.length);
+				var option = options[randomIndex];
+				option.selected = true;
+				
+			}
+		</script>
+	</body>
+</html>
