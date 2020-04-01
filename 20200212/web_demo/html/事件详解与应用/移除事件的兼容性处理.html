@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn" />
+		<script>
+			var btn = document.getElementById('btn');
+			
+			function btnClick () {
+				alert('黑马');
+				removeEventListener(btn, 'click', btnClick);
+			}
+			
+			addEventListener(btn, 'click', btnClick);
+			
+			function addEventListener (element, eventName, fn) {
+				if (element.addEventListener) {
+					element.addEventListener(eventName, fn);//第三个参数默认是false
+				} else if (element.attachEvent) {
+					element.attachEvent('on' + eventName, fn);
+				} else {
+					element['on' + eventName] = fn;
+				}
+			}
+			
+			function removeEventListener (element, eventName, fn) {
+				if (element.removeEventListener) {
+					element.removeEventListener(eventName, fn);
+				} else if (element.detachEvent) {
+					element.detachEvent('on' + eventName, fn);
+				} else {
+					element['on' + eventName] = null;
+				}
+			}
+		</script>
+	</body>
+</html>

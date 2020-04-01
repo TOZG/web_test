@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn" />
+		<script>
+			var btn = document.getElementById('btn');
+			addEventListener(btn, 'click', function() {
+				alert('hello hhhh --01');
+			});
+			addEventListener(btn, 'click', function() {
+				alert('hello hhhh --02');
+			});
+			function addEventListener (element, eventName, fn) {
+				if (element.addEventListener) {
+					element.addEventListener(eventName, fn);//第三个参数默认是false
+				} else if (element.attachEvent) {
+					element.attachEvent('on' + eventName, fn);
+				} else {
+					element['on' + eventName] = fn;
+				}
+			}
+		</script>
+	</body>
+</html>

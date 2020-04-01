@@ -22,9 +22,9 @@
 		</select>
 		
 		<input type="button" value=">>" id="btn1" />
-		<input type="button" value="<<" id="btn1" />
-		<input type="button" value=">" id="btn1" />
-		<input type="button" value="<" id="btn1" />
+		<input type="button" value="<<" id="btn2" />
+		<input type="button" value=">" id="btn3" />
+		<input type="button" value="<" id="btn4" />
 		
 		<select id="select" multiple="multiple"></select>
 		
@@ -33,9 +33,53 @@
 			var all = my$('all');
 			var select = my$('select');
 			my$('btn1').onclick = function () {
+				var len = all.children.length;
+				for (var i = 0; i < len; i++) {
+					var option = all.children[0];
+					select.appendChild(option);
+					option.selected = false;
+				}
+
+				//使用此方式移动子元素，若子元素有事件，移动后元素事件丢失
+				// select.innerHTML = all.innerHTML;
+				//当我们是用innerHTML清空子元素的时候
+				//若子元素有事件，此时会发生内存写了
+				// all.innerHTML = '';
+			}
+			my$('btn2').onclick = function () {
+				var len = select.children.length;
+				for (var i = 0; i < len; i++) {
+					var option = select.children[0];
+					all.appendChild(option);
+					option.selected = false;
+				}
+			}
+			my$('btn3').onclick = function () {
+				var array = [];
 				for (var i = 0; i < all.children.length; i++) {
 					var option = all.children[i];
+					if (option.selected) {
+						array.push(option);
+						option.selected = false;
+					}
+				}
+				for (var i = 0; i < array.length; i++) {
+					var option = array[i];
 					select.appendChild(option);
+				}
+			}
+			my$('btn4').onclick = function () {
+				var array = [];
+				for (var i = 0; i < select.children.length; i++) {
+					var option = select.children[i];
+					if (option.selected) {
+						array.push(option);
+						option.selected = false;
+					}
+				}
+				for (var i = 0; i < array.length; i++) {
+					var option = array[i];
+					all.appendChild(option);
 				}
 			}
 		</script>

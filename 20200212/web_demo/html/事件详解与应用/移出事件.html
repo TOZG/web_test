@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn" />
+		<script>
+			var btn = document.getElementById('btn');
+			// btn.onclick = function () {
+			// 	alert('移除事件01');
+			// 	//1.
+			// 	btn.onclick = null;//移除事件
+			// }
+			
+			
+			//2.常用
+			function btnClick () {
+				alert('移除事件02');
+				btn.removeEventListener('click', btnClick);//移除事件注册时不能使用匿名函数
+			}
+			btn.addEventListener('click', btnClick);
+			
+			//3.
+			// function btnClick () {
+			// 	alert('移除事件03');
+			// 	btn.detachEvent('onclick', btnClick);
+			// }
+			// btn.attachEvent('onclick', btnClick)
+		</script>
+	</body>
+</html>

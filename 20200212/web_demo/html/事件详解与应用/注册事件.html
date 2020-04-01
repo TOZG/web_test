@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn" />
+		<script>
+			var btn = document.getElementById('btn');
+			//1.注册事件的第一种方式,无法给同一对象的同一个事件注册多个函数
+			btn.onclick = function () {
+				alert('hello aima');
+			}
+			//2.注册事件的第二种方式,浏览器兼容性问题,IE9以后
+			btn.addEventListener('click', function () {
+				alert('hello world')
+			});
+			btn.addEventListener('click', function () {
+				alert('hello heima')
+			});
+			//3.注册事件的第三种方法,浏览器兼容性问题,IE的老版本特有的方法,IE6-10支持
+			btn.attachEvent('onclick', function () {
+				alert('hello attachEvent 01');
+			});
+			btn.attachEvent('onclick', function () {
+				alert('hello attachEvent 02');
+			});
+		</script>
+	</body>
+</html>
