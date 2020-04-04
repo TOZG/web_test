@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			#box {
+				width: 100px;
+				height: 100px;
+				margin: 50px;
+				border: 30px solid red;
+				padding: 10px;
+				background-color: green;
+				overflow: auto;//内容超出框后会自动产生滚动条
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			小明跟小华到动物园玩，进门时，小明指着小华对看门人说：“看清楚喔！等会儿出来，别说我偷了你的们猴子！”
+		</div>
+		<script>
+			var box = document.getElementById('box');
+			//box滚动的距离
+			console.log(box.scrollLeft);
+			console.log(box.scrollTop);
+			
+			console.log(box.scrollWidth);//包括容纳宽度与padding，不包括滚动条
+			console.log(box.scrollHeight);//整个内容的高度
+			
+			box.onscroll = function () {
+				//拖动滚动条触发
+				console.log(box.scrollLeft);
+				console.log(box.scrollTop);
+			}
+		</script>
+	</body>
+</html>

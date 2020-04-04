@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<a id="link" href="http://www.baidu.com">百度</a>
+		<script>
+			var link = document.getElementById('link');
+			link.onclick = function (e) {
+				alert('hello');
+				//1.第一种取消默认行为
+				// return false;
+				//2.阻止默认行为执行
+				e.preventDefault();
+				//IE老版本，非标准方式
+				// e.returnValue = false;
+			}
+		</script>
+	</body>
+</html>

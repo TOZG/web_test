@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body {
+				height: 1000px;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			// document.onclick = function () {
+			// 	console.log(document.body.scrollLeft);
+			// 	console.log(document.body.scrollTop);
+				
+			// 	console.log(document.documentElement.scrollLeft);
+			// 	console.log(document.documentElement.scrollTop);
+			// }
+			
+			document.onclick = function (e) {
+				e = e || window.event;
+				console.log(getPage(e).pageX);
+				console.log(getPage(e).pageY);
+			}
+			
+			//获取页面滚动距离的浏览器兼容为问题
+			//获取页面滚动出去的距离
+			function getScroll () {
+				var scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
+				var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+				
+				return {
+					scrollLeft: scrollLeft,
+					scrollTop: scrollTop
+				}
+			}
+			
+			//获取鼠标在页面的位置，处理浏览器兼容性
+			function getPage (e) {
+				var pageX = e.pageX || e.clientX + getScroll().scrollLeft;
+				var pageY = e.pageY || e.clientY + getScroll().scrollTop;
+				return {
+					pageX: pageX,
+					pageY: pageY
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body {
+				margin: 0;
+			}
+			#box {
+				position: relative;
+				width: 400px;
+				height: 400px;
+				background-color: red;
+				margin: 50px;
+				overflow: hidden;//防止塌陷
+			}
+			#child {
+				width: 100px;
+				height: 100px;
+				background-color: green;
+				margin: 50px;
+				border: 10px solid yellow;
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="child">
+				
+			</div>
+		</div>
+			
+		<script>
+			var box = document.getElementById('box');
+			//获取box坐标
+			console.log(box.offsetLeft);
+			console.log(box.offsetTop);
+			//获取box大小
+			console.log(box.offsetWidth);
+			console.log(box.offsetHeight);
+			
+			//offsetParent用于获取当前最近定位的父级元素
+			
+			
+			var child = document.getElementById('child');
+			console.log(child.offsetParent);
+			//获取child坐标,offsetLeft是距离offsetParent元素
+			console.log(child.offsetLeft);
+			console.log(child.offsetTop);
+			//获取child大小,包括padding与边框、内容
+			console.log(child.offsetWidth);
+			console.log(child.offsetHeight);
+			
+			
+		</script>
+		
+	</body>
+</html>

@@ -12,6 +12,7 @@
 			console.log(names);
 						
 			var number = [5, 6, 89, 0, 11, 0, 12, 3, 0];
+			console.log(number.length)
 			console.log(number);
 			for (var j = 0; j < number.length; j++) {
 				if (0 === number[j]) {
@@ -24,6 +25,7 @@
 			console.log(number);
 			
 			number[number.length] = 120;
+			console.log(number);
 			var temp;
 			for (var i = 0; i < number.length / 2; i++) {
 				temp = number[i];
@@ -33,6 +35,7 @@
 			console.log(number);
 			
 			number[number.length] = 0;
+			console.log(number);
 			for (var j = 0; j < number.length - 1; j++) {
 				var flag = 0;
 				for (var i = 0; i < number.length - 1 - j; i++) {

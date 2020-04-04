@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="开始" id="btn1" />
+		<input type="button" value="取消" id="btn2" />
+		
+		<script>
+			// var timerId;
+			// var btn1 = document.getElementById('btn1');
+			// // btn1.onclick = function () {
+			// // 	timerId = setTimeout(function() {
+			// // 		console.log('炸死你');
+			// // 	}, 5000);
+			// // }
+			// btn1.onclick = function () {
+			// 	timerId = setTimeout(fn, 3000)
+			// 	function fn () {
+			// 		console.log('炸死你');
+			// 	}
+			// }
+			
+			// var btn2 = document.getElementById('btn2');
+			// btn2.onclick = function () {
+			// 	clearTimeout(timerId);
+			// }
+			
+			
+			var timerId;
+			var btn1 = document.getElementById('btn1');
+			btn1.onclick = function () {
+				timerId = setInterval(fn, 3000);
+				function fn () {
+					console.log('早上8点了');
+				}
+			}
+			
+			var btn2 = document.getElementById('btn2');
+			btn2.onclick = function () {
+				clearInterval(timerId);
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>
